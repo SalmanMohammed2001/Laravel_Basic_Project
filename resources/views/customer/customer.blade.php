@@ -10,6 +10,29 @@
     <title>Document</title>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('customers.customer')}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('customers.new')}}">Save Customer</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
     <h1 style="text-align: center"> Customer Page</h1>
 <div class="container">
     <table class="table table-hover">
@@ -32,8 +55,8 @@
                 <td>{{$customer->addresss}}</td>
                 <td>{{$customer->desigination}}</td>
                 <td>{{$customer->age}}</td>
-                <td><a href="" class="btn btn-warning btn-sm">Update</a></td>
-                <td><a href="" class="btn btn-danger btn-sm">Delete</a></td>
+                <td><a href="{{route('customers.modify',['customer'=>$customer])}}" class="btn btn-warning btn-sm">Update</a></td>
+                <td><a href="{{route('customers.delete',['customer'=>$customer])}}" class="btn btn-danger btn-sm">Delete</a></td>
             </tr>
             @endForeach
             </tbody>

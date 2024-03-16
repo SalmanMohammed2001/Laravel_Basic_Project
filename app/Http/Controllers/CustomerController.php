@@ -27,9 +27,27 @@ class CustomerController extends Controller{
         return redirect(route('customers.customer'));
     }
 
-    public function update(Customer $customer){
+    public function modify(Customer $customer){
         $customerList=Customer::all();
-        return view('customer.update',['customer'=>$customer]);
+        return view('customer.modify',['customer'=>$customer]);
     }
+
+    public function update(Customer $customer,Request $request){
+        $createCustomer=$request->validate([
+            'name'=>'required',
+            'addresss'=>'required',
+            'desigination'=>'required',
+            'age'=>'required',
+        ]);
+
+        $customer->update($createCustomer);
+        return redirect(route('customers.customer'));
+    }
+
+    public function delete(Customer $customer){
+        $customer->delete(); // Delete the customer
+        return redirect(route('customers.customer'));
+    }
+
 
 }
