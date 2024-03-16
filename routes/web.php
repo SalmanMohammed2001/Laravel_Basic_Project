@@ -9,3 +9,6 @@ Route::get('/', function () {
 
 Route::get('/api/v1/customers',
     [CustomerController::class,'customers'])->name('customers.customer');
+
+Route::get('/api/v1/new-customer-form',
+    [CustomerController::class,'new'])->name('customers.new');
