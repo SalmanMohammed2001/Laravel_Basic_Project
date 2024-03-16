@@ -10,7 +10,8 @@
     <title>New Customer</title>
 </head>
 <body>
-<form action="">
+<form action="{{route('customers.add')}}" method="post">
+    @csrf
     <div class="outer" style="margin: 50px 0">
         <div class="container">
             <div class="row">
