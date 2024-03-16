@@ -27,4 +27,9 @@ class CustomerController extends Controller{
         return redirect(route('customers.customer'));
     }
 
+    public function update(Customer $customer){
+        $customerList=Customer::all();
+        return view('customer.update',['customer'=>$customer]);
+    }
+
 }
